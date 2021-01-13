@@ -1,6 +1,7 @@
 import React from "react"
+import OnePokemon from "../components/OnePokemon"
 
-const Pokedex = () => {
+const Pokedex = (props) => {
     
     const apiURL = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=150'
 
@@ -20,10 +21,32 @@ const Pokedex = () => {
     React.useEffect(() => {
         getPokes()
     }, [])
-  
+
+    //map pokes when loaded
+    const loaded = () => {
+        <div>
+        {poke.results.map((pokemon, i) => {
+            const {name, url} = pokemon
+            return (
+                <p key={i}>{name} {url}</p>
+            )
+        })}
+       </div>  
+    } 
+    
+    const loading = () => {
+        return (
+            <h3>Getting Pokemon</h3>
+        )
+    }
     
     return(
-        <h1>Here is the Pokedex</h1>
+        <div>
+            <h1>Here is the Pokedex</h1>
+            {poke ? loaded(): loading}
+            <OnePokemon />
+        </div>
+
     )
 }
 

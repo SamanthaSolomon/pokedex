@@ -1,8 +1,8 @@
 import React from "react"
 
-const OnePokemon = () => {
+const OnePokemon = (props) => {
     return(
-        <h1>Here is one Pokemon</h1>
+        <p>Here is one Pokemon</p>
     )
 }
 

@@ -6,7 +6,7 @@ import MyTeam from "./pages/MyTeam"
 import Pokedex from "./pages/Pokedex"
 import { Route, Switch } from "react-router-dom"
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Nav />
@@ -16,7 +16,6 @@ function App() {
         </Route>  
         <Route path="/">
           <Pokedex />
-          <OnePokemon />
         </Route>
       </Switch>
     </div>
