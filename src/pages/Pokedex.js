@@ -24,14 +24,18 @@ const Pokedex = (props) => {
 
     //map pokes when loaded
     const loaded = () => {
+        return (
         <div>
         {poke.results.map((pokemon, i) => {
             const {name, url} = pokemon
             return (
-                <p key={i}>{name} {url}</p>
+                <p onClick={()=>{props.iChooseYou(pokemon)
+                props.history.push("/onepokemon")
+                }} key={i}> {name} </p>
             )
         })}
-       </div>  
+       </div>
+        )  
     } 
     
     const loading = () => {
@@ -44,7 +48,6 @@ const Pokedex = (props) => {
         <div>
             <h1>Here is the Pokedex</h1>
             {poke ? loaded(): loading}
-            <OnePokemon />
         </div>
 
     )
