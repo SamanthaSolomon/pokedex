@@ -16,7 +16,6 @@ const Pokedex = (props) => {
         setPoke(data)
     }
 
-
     //run getPokes once on component load
     React.useEffect(() => {
         getPokes()
